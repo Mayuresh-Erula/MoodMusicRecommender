@@ -7,6 +7,7 @@ import { Sparkles, Settings, Music4 } from "lucide-react"; // Added Music4 for l
 
 function App() {
   const API_URL = import.meta.env.VITE_API_URL;
+  console.log(API_URL)
   /* --- NEW STATE FOR INITIAL APP PRE-LOADER --- */
   const [isAppLoading, setIsAppLoading] = useState(true);
 
