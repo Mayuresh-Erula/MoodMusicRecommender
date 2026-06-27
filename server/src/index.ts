@@ -6,13 +6,13 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.use(cors({
-  origin: [
-    "http://localhost:5173","https://mood-music-recommender-eight.vercel.app/"
-  ],
-  credentials: true
-}));
-
+// app.use(cors({
+//   origin: [
+//     "http://localhost:5173","https://mood-music-recommender-eight.vercel.app/"
+//   ],
+//   credentials: true
+// }));
+app.use(cors());
 app.use(express.json());
 
 app.get("/api/songs", getSongsByMood);
