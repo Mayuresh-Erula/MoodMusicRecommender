@@ -33,7 +33,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `http://localhost:3000/api/songs?mood=${selectedMood.label.toLowerCase()}`,
+        `$https://moodmusic-api.onrender.com/health/api/songs?mood=${selectedMood.label.toLowerCase()}`,
       );
 
       if (!response.ok) {
@@ -44,7 +44,7 @@ function App() {
       setSongs(data);
     } catch (err) {
       console.error("Connection Error:", err);
-      alert("Make sure your backend server is running on port 3000!");
+      alert("Unable to connect to the server. Please try again later.");
     } finally {
       setLoading(false);
     }
@@ -119,7 +119,7 @@ function App() {
         >
           <button
             onClick={() => setShowSlider(!showSlider)}
-            className= "text-zinc-400 hover:text-green-400 transition-colors p-2 md:p-1"
+            className="text-zinc-400 hover:text-green-400 transition-colors p-2 md:p-1"
             aria-label="Adjust glassmorphism look"
           >
             <Settings
