@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors({
   origin: [
-    "http://localhost:5173"
+    "http://localhost:5173","https://mood-music-recommender-eight.vercel.app/"
   ],
   credentials: true
 }));
