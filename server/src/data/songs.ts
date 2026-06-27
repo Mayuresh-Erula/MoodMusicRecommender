@@ -1,6 +1,5 @@
-// Share types between FE and BE using monorepo shared-types
-// import { Song } from '@mood-music/shared-types'
-import { Song } from '../../../frontend/src/types/index'
+
+import { Song } from '../types/songs'
 
 export const SONG_DATABASE: Record<string, Song[]> = {
   "happy": [
