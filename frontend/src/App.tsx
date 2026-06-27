@@ -6,6 +6,7 @@ import { MOODS, type MoodOption, type Song } from "./types";
 import { Sparkles, Settings, Music4 } from "lucide-react"; // Added Music4 for loading logo
 
 function App() {
+  const API_URL = import.meta.env.VITE_API_URL;
   /* --- NEW STATE FOR INITIAL APP PRE-LOADER --- */
   const [isAppLoading, setIsAppLoading] = useState(true);
 
@@ -33,7 +34,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `$https://moodmusic-api.onrender.com/health/api/songs?mood=${selectedMood.label.toLowerCase()}`,
+        `${API_URL}/api/songs?mood=${selectedMood.label.toLowerCase()}`,
       );
 
       if (!response.ok) {
