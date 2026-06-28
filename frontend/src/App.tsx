@@ -6,8 +6,10 @@ import { MOODS, type MoodOption, type Song } from "./types";
 import { Sparkles, Settings, Music4 } from "lucide-react"; // Added Music4 for loading logo
 
 function App() {
-  const API_URL = import.meta.env.VITE_API_URL;
-  console.log("API_URL =", API_URL);
+  // const API_URL = import.meta.env.VITE_API_URL;
+  // console.log("API_URL =", API_URL);
+  const Api_url = import.meta.env.VITE_API_URL;
+  console.log(Api_url)
   /* --- NEW STATE FOR INITIAL APP PRE-LOADER --- */
   const [isAppLoading, setIsAppLoading] = useState(true);
 
@@ -35,7 +37,7 @@ function App() {
 
     try {
       const response = await fetch(
-        `${API_URL}/api/songs?mood=${selectedMood.label.toLowerCase()}`,
+        `${Api_url}/api/songs?mood=${selectedMood.label.toLowerCase()}`,
       );
 
       if (!response.ok) {
