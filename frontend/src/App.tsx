@@ -30,43 +30,8 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  // const handleFetchSongs = async () => {
-  //   if (!selectedMood) return;
-  //   setLoading(true);
-  //   setSongs([]);
-
-  //   try {
-  //     const response = await fetch(
-  //       `${Api_url}/api/songs?mood=${selectedMood.label.toLowerCase()}`,
-  //     );
-
-  //     if (!response.ok) {
-  //       throw new Error("Failed to fetch songs");
-  //     }
-
-  //     const data: Song[] = await response.json();
-  //     setSongs(data);
-  //   } catch (err) {
-  //     console.error("Connection Error:", err);
-  //     alert("Unable to connect to the server. Please try again later.");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
   const handleFetchSongs = async () => {
-    console.log("Button clicked");
-    console.log("Selected Mood:", selectedMood);
-
-    if (!selectedMood) {
-      console.log("No mood selected");
-      return;
-    }
-
-    console.log(
-      "Fetching:",
-      `${Api_url}/api/songs?mood=${selectedMood.label.toLowerCase()}`,
-    );
-
+    if (!selectedMood) return;
     setLoading(true);
     setSongs([]);
 
@@ -75,22 +40,20 @@ function App() {
         `${Api_url}/api/songs?mood=${selectedMood.label.toLowerCase()}`,
       );
 
-      console.log("Status:", response.status);
-
       if (!response.ok) {
         throw new Error("Failed to fetch songs");
       }
 
-      const data = await response.json();
-      console.log(data);
-
+      const data: Song[] = await response.json();
       setSongs(data);
     } catch (err) {
-      console.error(err);
+      console.error("Connection Error:", err);
+      alert("Unable to connect to the server. Please try again later.");
     } finally {
       setLoading(false);
     }
   };
+
   /* --- HARD BINARY LOGIC FOR 3D GLASSMORPHISM --- */
   const isGlassEnabled = glassIntensity > 0;
   const bgOpacity = isGlassEnabled ? 0.15 : 1.0;
